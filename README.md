@@ -1,12 +1,12 @@
 # Système expert : Aide au choix d’un système tactique lors d’un match de football
 
-Système expert pour évaluer quelle stratégie adopter lors d'une rencontre de football. Il s'agit d'un des 3 projets à réaliser dans le cadre du cours IA01 (Intelligence Artificielle : Représentation) dispensé à l'Université Technologique de Compiègne (UTC) par Mme. Marie-Hélène Abel.
+**Système expert en Lisp** pour évaluer quelle stratégie adopter lors d'une rencontre de football. Il s'agit d'un des 3 projets à réaliser dans le cadre du cours IA01 (Intelligence Artificielle : Représentation) dispensé à l'Université Technologique de Compiègne (UTC) par Mme. Marie-Hélène Abel.
 
 Réalisé par Maxence Martin et Hugo Milair.
 
 ## Description
 
-Le but de ce projet est de réaliser un **système expert d'ordre 0+** prennant en compte 3 paramètres. Notre choix s'est porté sur l'aide à la décision pour un entraîneur de football. En effet, lors d'un match, il est important de choisir la bonne tactique pour gagner. 
+Le but de ce projet est de réaliser un **système expert d'ordre 0+ en Lisp** prennant en compte 3 niveaux d'inférence. Notre choix s'est porté sur l'aide à la décision pour un entraîneur de football. En effet, lors d'un match, il est important de choisir la bonne tactique pour gagner.
 
 Un **système tactique** est une manière de disposer les 10 joueurs de champs de son équipe sur un terrain. Formellement, une système se représente sous la forme *X-Y-Z* où *X* est le nombre de défenseurs, *Y* le nombre de milieux de terrain et *Z* le nombre d'attaquants. Par exemple, un système 4-4-2 signifie qu'il y a 4 défenseurs, 4 milieux de terrain et 2 attaquants. On peut observer certaines variantes comme le 4-2-3-1, qui signifie qu'il y a 4 défenseurs, 2 milieux de terrain défensifs, 3 milieux de terrain offensifs et 1 attaquant.
 
