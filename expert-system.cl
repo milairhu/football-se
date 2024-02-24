@@ -125,8 +125,8 @@
 (defun suivant (sous_liste liste) 
   (if (EQUAL sous_liste (car (last liste))) (car liste)  ;;si la sous-liste est dernier élément de la liste, on retourne au début
     (progn
-    (while (and liste (not (EQUAL (car liste) sous_liste))) 
-      (pop liste)   ;;on parcourt la liste jusqu'à tomber sur la sous-liste
+    (loop until (not (and liste (not (EQUAL (car liste) sous_liste)))) 
+      do (pop liste)   ;;on parcourt la liste jusqu'à tomber sur la sous-liste
       )
     (pop liste) ;;on dépasse la sous-liste
     (pop liste) ;;on renvoit l'élément juste derrière
@@ -144,15 +144,15 @@
   (let ( (BDF '()) (Score NIL) (Temps NIL) (zone_a_attaquer NIL) (agressivité_adverse NIL))
     (print "Temps écoulé : ")
     (setq Temps (read))
-    (while (or (not (numberp Temps)) (> Temps 90) (< Temps 0) )
-      (print "ERREUR. Temps écoulé : ")
+    (loop until (not (or (not (numberp Temps)) (> Temps 90) (< Temps 0) ))
+      do (print "ERREUR. Entrez un temps écoulé valide : ")
       (setq Temps (read))
       )
     
     (print "Ecart au score (votre équipe - équipe adverse) : ")
     (setq Score (read))
-    (while (not (numberp Score))
-      (print "ERREUR. Ecart au score (votre équipe - équipe adverse) : ")
+    (loop until (numberp Score)
+      do (print "ERREUR. Entrez un écart au score (votre équipe - équipe adverse) valide : ")
       (setq Score (read))
       )
     
@@ -164,8 +164,8 @@
     (print "5 : Très offensif.")
     (setq agressivité_adverse (read))
     
-    (while (not (member agressivité_adverse '(1 2 3 4 5)))
-      (print "ERREUR. Agressivité de l'adversaire : ")
+    (loop until  (member agressivité_adverse '(1 2 3 4 5))
+      do (print "ERREUR. Entrez une agressivité de l'adversaire valide: ")
       (setq agressivité_adverse (read))
       )
     (if (= agressivité_adverse 1) 
@@ -189,8 +189,8 @@
     (print "2 : Ailes.")
     (setq zone_a_attaquer (read))
     
-    (while (not (member zone_a_attaquer '(1 2)))
-      (print "ERREUR. Zone à attaquer : ")
+    (loop until (member zone_a_attaquer '(1 2))
+      do (print "ERREUR. Entrez une zone à attaquer valide : ")
       (setq zone_a_attaquer (read))
       )
     (if (= zone_a_attaquer 1)
@@ -231,8 +231,8 @@
 (defun moteur (BDR)
   (let ((Regle (car BDR)) (BDF (initBDF)))
     
-    (while (not (assoc 'système BDF))
-      (if (not (type_conclusion_dans_BDF Regle BDF))
+    (loop until (assoc 'système BDF)
+      do (if (not (type_conclusion_dans_BDF Regle BDF))
           (if (validation_premisse (cadr Regle) BDF)
               (setq BDF (ajouter_fait_dans_BDF Regle BDF))
             )
@@ -240,14 +240,14 @@
       (setq Regle (suivant Regle BDR))
       )
     (print "Systèmes conseillés : ")
-    (cadr (assoc 'système BDF))
+    (print (cadr (assoc 'système BDF)))
     )
     )
     
     
   
 
-;; (moteur *BDR*)
+(moteur *BDR*)
 
 
 
