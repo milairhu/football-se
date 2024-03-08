@@ -1,7 +1,7 @@
 # Système expert : Aide au choix d’un système tactique lors d’un match de football
 
 **Système expert en Lisp** pour évaluer quelle stratégie adopter lors d'une rencontre de football. Il s'agit d'un des 3 projets à réaliser dans le cadre du cours IA01 (Intelligence Artificielle : Représentation) dispensé à l'Université Technologique de Compiègne (UTC) par Mme. Marie-Hélène Abel.
-
+ 
 Réalisé par Maxence Martin et Hugo Milair.
 
 ## Description
