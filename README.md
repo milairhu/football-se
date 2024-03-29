@@ -54,10 +54,14 @@ Le diagramme d'état ci-dessous montre un exemple d'utilisation du système expe
 
 ## Lancer le programme
 
-Pour lancer le programme contenu dans le fichier expert-system.cl, il faut avoir installé un interpréteur COmmon Lisp comme **CLISP**. Par exemple, sous Linux:
+Pour lancer le programme contenu dans le fichier expert-system.cl, il faut avoir installé un interpréteur Common Lisp comme **CLISP**. Par exemple, sous Linux:
 
 ```bash
 sudo apt-get install clisp
+```
+
+Puis lancer le programme:
+```bash
 clisp expert-system.cl
 ```
 
